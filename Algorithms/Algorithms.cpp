@@ -14,7 +14,7 @@ int main()
 		return 0;
 	}
 	WalkList(head);
-	LinkNodeReverse(head);
+	head = LinkNodeReverse(head);
 	WalkList(head);
 	CleanList(head);
 #endif // OneWayLinkReverse

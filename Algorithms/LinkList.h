@@ -7,4 +7,4 @@ struct OneWayLinkNode {
 void WalkList(OneWayLinkNode* head);
 OneWayLinkNode* InitList(int n);
 void CleanList(OneWayLinkNode* head);
-void LinkNodeReverse(OneWayLinkNode* head);
+OneWayLinkNode* LinkNodeReverse(OneWayLinkNode* head);

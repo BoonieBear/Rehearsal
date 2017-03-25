@@ -10,6 +10,7 @@ void WalkList(OneWayLinkNode* head)
 		pNode = pNode->Next;
 	}
 	printf("%d ", pNode->value);
+	printf("\n");
 }
 OneWayLinkNode* InitList(int n)
 {
@@ -29,23 +30,29 @@ OneWayLinkNode* InitList(int n)
 }
 void CleanList(OneWayLinkNode* head)
 {
-	OneWayLinkNode* pNode = head;
+	OneWayLinkNode* pNode = NULL;
 	while (head !=NULL&&head->Next!=NULL)
 	{
+		pNode = head;
 		head = head->Next;
 		delete pNode;
 	}
 	delete head;
 	head = NULL;
 }
-void LinkNodeReverse(OneWayLinkNode* head)
+OneWayLinkNode* LinkNodeReverse(OneWayLinkNode* head)
 {
 	OneWayLinkNode* pNode = head;
+	OneWayLinkNode* pTmp = NULL;
 	while (pNode != NULL&&pNode->Next!=NULL)
 	{
+		pTmp = pNode->Next->Next;
+
+		pNode->Next->Next = head;
 		head = pNode->Next;
-		if (head->Next != NULL)
-			pNode->Next = head->Next;
-		head->Next = pNode; 
+		pNode->Next = pTmp;
+
+		WalkList(head);
 	}
+	return head;
 }
